@@ -4,6 +4,8 @@
 #include <cmath>
 using namespace std;
 
+ double balance = 0.00;
+
 //Function prototype
 void checkBalance();
 void topUp();
@@ -43,8 +45,8 @@ int main(){
     }
     
     void checkBalance(){
-    double balance = 0.00;
-    cout << "Your balance is: RM0.00" << balance << endl;
+   
+    cout << "Your balance is: RM " << balance <<endl;
 }
 
 void topUp(){
@@ -53,12 +55,22 @@ void topUp(){
     cout << "Top up feature coming soon." << endl;
     cin >> amount;
 
-    balance = balance + amonut;
-     
-   cout << "Top up successful!" << endl;
-   cout << "Your new balance is RM " << balance << endl;
-}
+    if (amount <= 0){
+        cout << "Invalid amount. Please enter a positive amount" << endl;
+    }
+    else if (amount > 1000) {
+        cout << "Top up limit is RM 1000." << endl;
+    }
+    else {
+        balance = balance + amonut;
 
+        cout << "Top up successful!" << endl;
+        cout << "Your new balance is RM " << balance << endl;
+}
+    }
+
+    
+     
 void transferPayment(){
     cout << "Transfer feature coming soon." << endl;
 }
