@@ -41,12 +41,22 @@ int main(){
         cout << "Enter your choice ";
         cin >> choice;
     }
+    
     void checkBalance(){
-    cout << "Your balance is: RM0.00" << endl;
+    double balance = 0.00;
+    cout << "Your balance is: RM0.00" << balance << endl;
 }
 
 void topUp(){
+    double amount;
+
     cout << "Top up feature coming soon." << endl;
+    cin >> amount;
+
+    balance = balance + amonut;
+     
+   cout << "Top up successful!" << endl;
+   cout << "Your new balance is RM " << balance << endl;
 }
 
 void transferPayment(){
