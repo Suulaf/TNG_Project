@@ -11,6 +11,7 @@ void checkBalance();
 void topUp();
 void transferPayment();
 void displayMenu();
+void transactionHistory();
 
 int choice;
 double amount;
@@ -24,15 +25,15 @@ int main(){
             case 1: checkBalance(); break;
             case 2: topUp(); break;
             case 3: transferPayment(); break;
-            case 4: 
-                cout << "Thank you for using Touch 'n Go wallet!" << endl;
+            case 4: transactionHistory(); break;
+            case 5: cout << "Thank you for using Touch 'n Go wallet!" << endl;
                 cout << "Goodbye!" << endl; 
                 break;
             default: 
                 cout << "Invalid choice. Please select 1 - 4" << endl;
         }
     }
-    while (choice != 4);
+    while (choice != 5);
 
     return 0;
 }
@@ -54,8 +55,9 @@ void checkBalance(){
 }
 
 void topUp(){
+    amount = 0;
     while (amount <=0 || amount > 1000){
-    cout << "Enter the topUp amount: ";
+    cout << "Enter the top Up amount: ";
     cin >> amount;
 
    
@@ -71,6 +73,7 @@ void topUp(){
         cout << "Top up successful!" << endl;
         cout << "Your new balance is RM " << balance << endl;
     
+        history.push_back("Top Up: +RM " + to_string(amount));
 
 }
 
@@ -122,5 +125,14 @@ void transferPayment(){
 }
 
 void transactionHistory(){
-    cout << "No transactions yet." << endl;
+    if (history.empty()){
+        cout << "No transaction yet." << endl;
+        return;
+    }
+
+    cout << "\n-------Transaction History-------" << endl;
+    for ( int i = 0; i < history.size(); i++){
+        cout << i + 1 << ". " << history[i] << endl;
+    }
+    cout << "-----------------------------------" << endl;
 }
